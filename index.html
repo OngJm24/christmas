@@ -13,7 +13,6 @@
       --gold: #ffd700;
       --snow: rgba(255,255,255,0.9);
       --text: #f8fafc;
-      --card-bg: rgba(40, 40, 60, 0.85);
       --soft-glow: rgba(255,215,0,0.3);
       --message-gradient: linear-gradient(145deg, #2c3e50, #4b6cb7);
       --message-border: rgba(255, 255, 255, 0.2);
@@ -33,6 +32,7 @@
       overflow: hidden;
       text-align: center;
       position: relative;
+      padding: 1rem;
     }
 
     /* Background scene */
@@ -66,16 +66,21 @@
     /* Houses */
     .house {
       position: absolute;
-      bottom: 30px;
+      bottom: 5%;
       z-index: 3;
       display: flex;
       flex-direction: column;
       align-items: center;
+      transform: translateX(-50%);
     }
 
     .house-body {
-      width: 60px;
-      height: 50px;
+      width: 8vw;
+      min-width: 40px;
+      max-width: 60px;
+      height: 6vw;
+      min-height: 30px;
+      max-height: 50px;
       background: #c1440e;
       border: 2px solid #a83232;
       border-radius: 4px;
@@ -85,16 +90,20 @@
     .house-roof {
       width: 0;
       height: 0;
-      border-left: 35px solid transparent;
-      border-right: 35px solid transparent;
-      border-bottom: 25px solid #8b0000;
+      border-left: 4vw solid transparent;
+      border-right: 4vw solid transparent;
+      border-bottom: 2vw solid #8b0000;
       position: relative;
       bottom: 0;
     }
 
     .house-door {
-      width: 16px;
-      height: 25px;
+      width: 2vw;
+      height: 3vw;
+      min-width: 12px;
+      max-width: 16px;
+      min-height: 20px;
+      max-height: 25px;
       background: #4b2c1f;
       position: absolute;
       bottom: 0;
@@ -104,8 +113,12 @@
     }
 
     .house-window {
-      width: 10px;
-      height: 10px;
+      width: 1.5vw;
+      height: 1.5vw;
+      min-width: 8px;
+      min-height: 8px;
+      max-width: 10px;
+      max-height: 10px;
       background: #ffd700;
       box-shadow: 0 0 8px #ffd700;
       position: absolute;
@@ -118,12 +131,12 @@
     /* Trees */
     .tree {
       position: absolute;
-      bottom: 40px;
+      bottom: 6%;
       width: 0;
       height: 0;
-      border-left: 15px solid transparent;
-      border-right: 15px solid transparent;
-      border-bottom: 50px solid #0a3d16;
+      border-left: 2vw solid transparent;
+      border-right: 2vw solid transparent;
+      border-bottom: 6vw solid #0a3d16;
       z-index: 3;
       animation: sway 4s infinite ease-in-out alternate;
     }
@@ -151,7 +164,7 @@
 
     h1 {
       font-family: 'Great Vibes', cursive;
-      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-size: clamp(2rem, 8vw, 4rem);
       color: var(--gold);
       text-shadow: 0 0 10px var(--gold), 0 0 30px var(--accent);
       margin-bottom: 0.5rem;
@@ -168,7 +181,7 @@
     p.lead {
       color: #f1f5f9;
       margin-bottom: 2rem;
-      font-size: 1.1rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       opacity: 0.85;
       z-index: 5;
       position: relative;
@@ -176,8 +189,8 @@
 
     /* GIFT BOX */
     .gift-box {
-      width: 160px;
-      height: 160px;
+      width: clamp(120px, 25vw, 160px);
+      height: clamp(120px, 25vw, 160px);
       margin: 1.5rem auto;
       background: linear-gradient(145deg, #b8123b, #e11d48);
       border-radius: 18px;
@@ -201,10 +214,10 @@
 
     .gift-lid {
       position: absolute;
-      top: -30px;
+      top: -18%;
       left: 0;
-      width: 160px;
-      height: 45px;
+      width: 100%;
+      height: 25%;
       background: linear-gradient(135deg, #e11d48, #ff5c70);
       border-radius: 10px 10px 4px 4px;
       box-shadow: 0 4px 15px rgba(255,50,90,0.8);
@@ -222,14 +235,16 @@
     .gift-ribbon-vertical {
       top: 0; left: 50%;
       transform: translateX(-50%);
-      width: 26px; height: 160px;
+      width: 15%;
+      height: 100%;
       border-radius: 4px;
     }
 
     .gift-ribbon-horizontal {
       top: 50%; left: 0;
       transform: translateY(-50%);
-      width: 160px; height: 26px;
+      width: 100%;
+      height: 15%;
       border-radius: 4px;
     }
 
@@ -237,27 +252,29 @@
       transform: translateY(-90px) rotateX(60deg);
     }
 
-    /* MESSAGE DESIGN UPDATED */
+    /* MESSAGE DESIGN */
     .message {
-      max-width: 700px;
+      max-width: 90%;
       margin: 2rem auto 0;
       background: var(--message-gradient);
       border: 2px solid var(--message-border);
       border-radius: 25px;
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 215, 0, 0.2) inset;
       backdrop-filter: blur(15px);
-      padding: 2.5rem 3rem;
+      padding: 2rem 2.5rem;
       opacity: 0;
       transform: translateY(80px) scale(0.95);
       transition: all 1s cubic-bezier(0.17,0.67,0.83,0.67);
       overflow-y: auto;
       max-height: 400px;
-      font-size: 1.05rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
       line-height: 1.8;
       color: #f8f8f8;
       text-shadow: 0 0 3px rgba(0,0,0,0.2);
       z-index: 5;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     .message.show {
@@ -268,13 +285,21 @@
     .message h2 {
       color: #ffd700;
       text-shadow: 0 0 10px #ff6f61, 0 0 20px #ffd700;
-      margin-bottom: 1.2rem;
-      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
     }
 
     .message p {
       text-align: justify;
-      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .message-image {
+      display: block;
+      margin-top: auto; /* push image to the bottom */
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 10px;
     }
 
     /* SNOW */
@@ -288,8 +313,12 @@
     .snow i {
       position: absolute;
       top: -10px;
-      width: 6px;
-      height: 6px;
+      width: 0.5vw;
+      height: 0.5vw;
+      min-width: 2px;
+      min-height: 2px;
+      max-width: 6px;
+      max-height: 6px;
       border-radius: 50%;
       background: var(--snow);
       opacity: 0.8;
@@ -301,6 +330,26 @@
     @keyframes fall {
       to { transform: translateY(110vh); }
     }
+
+    /* MEDIA QUERIES */
+    @media (max-width: 768px) {
+      .house-body { width: 12vw; height: 8vw; }
+      .house-roof { border-left: 6vw solid transparent; border-right: 6vw solid transparent; border-bottom: 4vw solid #8b0000; }
+      .tree { border-left: 3vw solid transparent; border-right: 3vw solid transparent; border-bottom: 8vw solid #0a3d16; }
+      .gift-box { width: 35vw; height: 35vw; }
+      .gift-lid { top: -20%; height: 25%; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: clamp(1.8rem, 10vw, 3rem); }
+      p.lead { font-size: clamp(0.8rem, 3vw, 1rem); }
+      .house-body { width: 15vw; height: 10vw; }
+      .house-roof { border-left: 7vw solid transparent; border-right: 7vw solid transparent; border-bottom: 5vw solid #8b0000; }
+      .tree { border-left: 4vw solid transparent; border-right: 4vw solid transparent; border-bottom: 10vw solid #0a3d16; }
+      .gift-box { width: 45vw; height: 45vw; }
+      .gift-lid { top: -25%; }
+    }
+
   </style>
 </head>
 <body>
@@ -370,9 +419,11 @@
   <div class="message" id="message">
     <h2>Merry Christmas, my friend 🎅</h2>
     <p>
-     Merry Christmas and a happy new year HAHAHAHAHHAHAHAHAHAHAHA
-      <img src="https://scontent.fceb6-3.fna.fbcdn.net/v/t39.30808-6/448561077_2409370472595365_7314122852230702770_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TODLkuNrqPQQ7kNvwHjb9zI&_nc_oc=AdnSpQBIUQ9fXBJ6qcdxjTLWePk8107H3WuCQQtyaU0_r17pb4jT0pbbiuOGl2T83Mn4n--xpfBbKcwWgK4YQlLR&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_gid=03knMji4WGjyr-nBnjaj9Q&oh=00_Afh9WnllEWqBnIrL31d8o0ugu8VO-ICA6vK8DPuv9pVffg&oe=691A5603" alt="Italian Trulli">
+      Merry Christmas and a happy new year HAHAHAHAHHAHAHAHAHAHAHA
     </p>
+    <img src="https://scontent.fceb6-3.fna.fbcdn.net/v/t39.30808-6/448561077_2409370472595365_7314122852230702770_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=TODLkuNrqPQQ7kNvwHjb9zI&_nc_oc=AdnSpQBIUQ9fXBJ6qcdxjTLWePk8107H3WuCQQtyaU0_r17pb4jT0pbbiuOGl2T83Mn4n--xpfBbKcwWgK4YQlLR&_nc_zt=23&_nc_ht=scontent.fceb6-3.fna&_nc_gid=03knMji4WGjyr-nBnjaj9Q&oh=00_Afh9WnllEWqBnIrL31d8o0ugu8VO-ICA6vK8DPuv9pVffg&oe=691A5603" 
+         alt="Italian Trulli" 
+         class="message-image">
   </div>
 
   <script>
@@ -404,5 +455,3 @@
   </script>
 </body>
 </html>
-
-
